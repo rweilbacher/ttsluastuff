@@ -4,7 +4,7 @@ CONFIG = {
     FONT_COLOR = {0,0,0,95},
     COLOR_HEX = "#000000",
     TOOLTIP_SHOW = true,
-    VALUE = 0
+    VALUE = 0,
     NUM_FONT_SIZE = 600,
     TEXT_FONT_SIZE = 300
 }
