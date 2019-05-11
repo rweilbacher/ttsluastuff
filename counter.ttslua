@@ -48,7 +48,7 @@ function createAll()
         width=1000,
         alignment = 3,
         scale=scale,
-        font_size = CONFIG.NUM_FONT_SIZE,
+        font_size = tonumber(CONFIG.NUM_FONT_SIZE),
         font_color=CONFIG.FONT_COLOR,
         color={0,0,0,0}
         })
@@ -63,7 +63,7 @@ function createAll()
         position = {0,thickness/2,1.7},
         width = 1200,
         height = 1000,
-        font_size = CONFIG.TEXT_FONT_SIZE,
+        font_size = tonumber(CONFIG.TEXT_FONT_SIZE),
         scale={x=1, y=1, z=1},
         font_color= CONFIG.FONT_COLOR,
         color = {0,0,0,0}
