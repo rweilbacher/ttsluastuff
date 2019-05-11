@@ -39,47 +39,53 @@ function createAll()
 
     numZ = -0.2
     textZ = 1.7
+    textWidth = 1200
+    textHeight = 1000
+    numWidth = 1000
+    numHeight = 600
     if tonumber(CONFIG.NUM_FONT_SIZE) <= 0 then
         textZ = 0
+        textWidth = 0
+        textHeight = 0
     end
     if tonumber(CONFIG.TEXT_FONT_SIZE) <= 0 then
         numZ = 0
+        numWidth = 0
+        numHeight = 0
     end
 
-    if tonumber(CONFIG.NUM_FONT_SIZE) > 0 then
-        self.createButton({
-            label=tostring(CONFIG.VALUE),
-            click_function="add_subtract",
-            tooltip=ttText,
-            function_owner=self,
-            position={0, thickness/2, numZ},
-            height=600,
-            width=1000,
-            alignment = 3,
-            scale=scale,
-            font_size = tonumber(CONFIG.NUM_FONT_SIZE),
-            font_color=CONFIG.FONT_COLOR,
-            color={0,0,0,0}
-            })
-    end
+    self.createButton({
+        label=tostring(CONFIG.VALUE),
+        click_function="add_subtract",
+        tooltip = ttText,
+        function_owner = self,
+        position = {0, thickness/2, numZ},
+        height = numHeight,
+        width = numWidth,
+        alignment = 3,
+        scale=scale,
+        font_size = tonumber(CONFIG.NUM_FONT_SIZE),
+        font_color=CONFIG.FONT_COLOR,
+        color={0,0,0,0}
+        })
 
-    if tonumber(CONFIG.TEXT_FONT_SIZE) > 0 then
-        self.createInput({
-            value = self.getName(),
-            input_function = "editName",
-            tooltip=ttText,
-            label = "",
-            function_owner = self,
-            alignment = 3,
-            position = {0,thickness/2, textZ},
-            width = 1200,
-            height = 1000,
-            font_size = tonumber(CONFIG.TEXT_FONT_SIZE),
-            scale={x=1, y=1, z=1},
-            font_color= CONFIG.FONT_COLOR,
-            color = {0,0,0,0}
-            })
-    end
+
+    self.createInput({
+        value = self.getName(),
+        input_function = "editName",
+        tooltip=ttText,
+        label = "",
+        function_owner = self,
+        alignment = 3,
+        position = {0,thickness/2, textZ},
+        width = textWidth,
+        height = textHeight,
+        font_size = tonumber(CONFIG.TEXT_FONT_SIZE),
+        scale={x=1, y=1, z=1},
+        font_color= CONFIG.FONT_COLOR,
+        color = {0,0,0,0}
+        })
+
 
 
     setTooltips()
