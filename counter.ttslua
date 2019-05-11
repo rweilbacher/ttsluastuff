@@ -39,14 +39,14 @@ function createAll()
 
     numZ = -0.2
     textZ = 1.7
-    if CONFIG.NUM_FONT_SIZE <= 0 then
+    if tonumber(CONFIG.NUM_FONT_SIZE) <= 0 then
         textZ = 0
     end
-    if CONFIG.TEXT_FONT_SIZE <= 0 then
+    if tonumber(CONFIG.TEXT_FONT_SIZE) <= 0 then
         numZ = 0
     end
 
-    if CONFIG.NUM_FONT_SIZE > 0 then
+    if tonumber(CONFIG.NUM_FONT_SIZE) > 0 then
         self.createButton({
             label=tostring(CONFIG.VALUE),
             click_function="add_subtract",
@@ -63,7 +63,7 @@ function createAll()
             })
     end
 
-    if CONFIG.TEXT_FONT_SIZE > 0 then
+    if tonumber(CONFIG.TEXT_FONT_SIZE) > 0 then
         self.createInput({
             value = self.getName(),
             input_function = "editName",
