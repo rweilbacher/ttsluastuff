@@ -5,6 +5,8 @@ CONFIG = {
     COLOR_HEX = "#000000",
     TOOLTIP_SHOW = true,
     VALUE = 0
+    NUM_FONT_SIZE = 600,
+    TEXT_FONT_SIZE = 300
 }
 INJECTED_COUNTER = true
 
@@ -34,36 +36,41 @@ function createAll()
         thickness = thickness*2
         scale = {0.75, 0.75, 0.75}
     end
-    self.createButton({
-      label=tostring(CONFIG.VALUE),
-      click_function="add_subtract",
-      tooltip=ttText,
-      function_owner=self,
-      position={0, thickness/2, -0.2},
-      height=600,
-      width=1000,
-      alignment = 3,
-      scale=scale,
-      font_size=600,
-      font_color=CONFIG.FONT_COLOR,
-      color={0,0,0,0}
-      })
 
-    self.createInput({
-        value = self.getName(),
-        input_function = "editName",
-        tooltip=ttText,
-        label = "",
-        function_owner = self,
-        alignment = 3,
-        position = {0,thickness/2,1.7},
-        width = 1200,
-        height = 1000,
-        font_size = 200,
-        scale={x=1, y=1, z=1},
-        font_color= CONFIG.FONT_COLOR,
-        color = {0,0,0,0}
-        })
+    if CONFIG.NUM_FONT_SIZE > 0 then
+        self.createButton({
+          label=tostring(CONFIG.VALUE),
+          click_function="add_subtract",
+          tooltip=ttText,
+          function_owner=self,
+          position={0, thickness/2, -0.2},
+          height=600,
+          width=1000,
+          alignment = 3,
+          scale=scale,
+          font_size = NUM_FONT_SIZE,
+          font_color=CONFIG.FONT_COLOR,
+          color={0,0,0,0}
+          })
+    end
+
+    if CONFIG.TEXT_FONT_SIZE > 0 then
+        self.createInput({
+            value = self.getName(),
+            input_function = "editName",
+            tooltip=ttText,
+            label = "",
+            function_owner = self,
+            alignment = 3,
+            position = {0,thickness/2,1.7},
+            width = 1200,
+            height = 1000,
+            font_size = TEXT_FONT_SIZE,
+            scale={x=1, y=1, z=1},
+            font_color= CONFIG.FONT_COLOR,
+            color = {0,0,0,0}
+            })
+    end
 
     setTooltips()
 end
